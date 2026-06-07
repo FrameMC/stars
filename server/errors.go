@@ -5,9 +5,9 @@ import (
 )
 
 var (
-	ErrIsRunning            = errors.New("server is running")
-	ErrSuspended            = errors.New("server is currently in a suspended state")
-	ErrServerIsInstalling   = errors.New("server is currently installing")
+	ErrIsRunning            = errors.New("Serveur démarré")
+	ErrSuspended            = errors.New("Serveur suspendu")
+	ErrServerIsInstalling   = errors.New("Installation en cours")
 	ErrServerIsTransferring = errors.New("server is currently being transferred")
 	ErrServerIsRestoring    = errors.New("server is currently being restored")
 )
@@ -15,7 +15,7 @@ var (
 type crashTooFrequent struct{}
 
 func (e *crashTooFrequent) Error() string {
-	return "server has crashed too soon after the last detected crash"
+	return "[FrameMC] Le serveur a crashé trop de fois, vérifier les erreurs"
 }
 
 func IsTooFrequentCrashError(err error) bool {
